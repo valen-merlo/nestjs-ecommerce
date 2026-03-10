@@ -7,6 +7,12 @@ const envFilePath: string = getEnvPath(
   resolve(__dirname, '../..', 'common/envs'),
 );
 config({ path: envFilePath });
+
+const sslConfig =
+  process.env.DATABASE_SSL === 'true'
+    ? { ssl: { rejectUnauthorized: false } }
+    : {};
+
 export const dataSourceOptions: DataSourceOptions = {
   type: 'postgres',
   host: process.env.DATABASE_HOST,
@@ -18,5 +24,6 @@ export const dataSourceOptions: DataSourceOptions = {
   migrations: ['dist/database/migration/history/*.js'],
   logger: 'simple-console',
   synchronize: false,
-  logging: true, 
+  logging: true,
+  ...sslConfig,
 };
