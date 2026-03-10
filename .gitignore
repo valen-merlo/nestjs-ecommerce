@@ -1,6 +1,8 @@
 # compiled output
 /dist
+**/dist
 /node_modules
+**/node_modules
 
 # Logs
 logs
@@ -34,5 +36,12 @@ lerna-debug.log*
 !.vscode/launch.json
 !.vscode/extensions.json
 
-#database data
+# database data
 database-data
+
+# env (no subir secretos; .env.example sí se puede commitear)
+.env
+.env.local
+.env.*.local
+frontend/.env
+frontend/.env.local

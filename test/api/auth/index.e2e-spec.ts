@@ -70,7 +70,7 @@ describe('AuthController (e2e)', () => {
         });
       expect(response.body.isSuccess).toBe(false);
       expect(response.body.message).toBe(
-        errorMessages.auth.wronCredentials.message,
+        errorMessages.auth.wrongCredentials.message,
       );
     });
 
@@ -84,7 +84,7 @@ describe('AuthController (e2e)', () => {
         });
       expect(response.body.isSuccess).toBe(false);
       expect(response.body.message).toBe(
-        errorMessages.auth.wronCredentials.message,
+        errorMessages.auth.wrongCredentials.message,
       );
     });
   });

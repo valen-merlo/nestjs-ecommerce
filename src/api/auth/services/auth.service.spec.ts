@@ -120,7 +120,7 @@ describe('AuthService', () => {
         password: 'password',
       });
       expect(result).rejects.toThrowError(
-        errorMessages.auth.wronCredentials.message,
+        errorMessages.auth.wrongCredentials.message,
       );
     });
 
@@ -133,7 +133,7 @@ describe('AuthService', () => {
         password: 'password',
       });
       expect(result).rejects.toThrowError(
-        errorMessages.auth.wronCredentials.message,
+        errorMessages.auth.wrongCredentials.message,
       );
     });
   });

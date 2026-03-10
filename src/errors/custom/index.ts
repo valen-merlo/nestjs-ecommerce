@@ -4,7 +4,7 @@ export interface ErrorBody extends Error {
 
 export const errorMessages = {
   auth: {
-    wronCredentials: {
+    wrongCredentials: {
       message: 'wrong data provided',
       code: '60001',
     },
@@ -16,8 +16,8 @@ export const errorMessages = {
       message: 'token expired',
       code: '60003',
     },
-    invlidToken: {
-      message: 'invlid token',
+    invalidToken: {
+      message: 'invalid token',
       code: '60004',
     },
     notAllowed: {

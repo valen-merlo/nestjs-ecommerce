@@ -5,12 +5,14 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { TypeOrmConfigService } from './database/typeorm/typeorm.service';
 import { ApiModule } from './api/api.module';
+import { EventsModule } from './events/events.module';
 import { configuration } from './config';
 
 @Module({
   imports: [
     ConfigModule.forRoot({ load: [configuration], isGlobal: true }),
     TypeOrmModule.forRootAsync({ useClass: TypeOrmConfigService }),
+    EventsModule,
     ApiModule,
   ],
   controllers: [AppController],

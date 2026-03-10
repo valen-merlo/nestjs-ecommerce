@@ -25,14 +25,14 @@ export class AuthService {
     const { email, password } = user;
     const alreadyExistingUser = await this.userService.findByEmail(email);
     if (!alreadyExistingUser)
-      throw new UnauthorizedException(errorMessages.auth.wronCredentials);
+      throw new UnauthorizedException(errorMessages.auth.wrongCredentials);
 
     const isValidPassword = await this.userService.comparePassword(
       password,
       alreadyExistingUser.password,
     );
     if (!isValidPassword)
-      throw new UnauthorizedException(errorMessages.auth.wronCredentials);
+      throw new UnauthorizedException(errorMessages.auth.wrongCredentials);
     return this.generateToken({
       id: alreadyExistingUser.id,
       email,
