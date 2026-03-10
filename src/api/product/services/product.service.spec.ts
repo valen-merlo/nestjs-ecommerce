@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { getEntityManagerToken } from '@nestjs/typeorm';
-import { successObject } from 'src/common/helper/sucess-response.interceptor';
+import { successObject } from 'src/common/helper/success-response.interceptor';
 import {
   Categories,
   Category,
@@ -8,6 +8,7 @@ import {
 } from 'src/database/entities/category.entity';
 import { Product, VariationTypes } from 'src/database/entities/product.entity';
 import { errorMessages } from 'src/errors/custom';
+import { EventBusService } from 'src/events/event-bus.service';
 import { EntityManager } from 'typeorm';
 import { ProductDetailsDto } from '../dto/product.dto';
 import { ComputerDetails } from '../dto/productDetails/computer.details';
@@ -31,6 +32,8 @@ describe('ProductService', () => {
   const fulfilledProduct = {
     id: 3,
     title: 'test title',
+    code: 'CODE-1',
+    variationType: 'NONE',
     description: 'description 1',
     about: ['about 1'],
     details: {
@@ -84,6 +87,10 @@ describe('ProductService', () => {
         {
           provide: getEntityManagerToken(),
           useValue: fakeEntityManager,
+        },
+        {
+          provide: EventBusService,
+          useValue: { emitEvent: jest.fn() },
         },
       ],
     }).compile();

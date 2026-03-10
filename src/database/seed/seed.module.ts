@@ -9,6 +9,7 @@ import { TypeOrmConfigService } from 'src/database/typeorm/typeorm.service';
 import { Color } from '../entities/color.entity';
 import { Country } from '../entities/country.entity';
 import { Currency } from '../entities/currency.entity';
+import { Product } from '../entities/product.entity';
 import { Size } from '../entities/size.entity';
 import { SeedService } from './seed.service';
 import { AdminSeeder } from './seeders/admin.seeder';
@@ -16,6 +17,7 @@ import { CategorySeeder } from './seeders/category.seeder';
 import { ColorSeeder } from './seeders/color.seeder';
 import { CountrySeeder } from './seeders/country.seeder';
 import { CurrencySeeder } from './seeders/currency.seeder';
+import { ProductSeeder } from './seeders/product.seeder';
 import { RolesSeeder } from './seeders/role.seeder';
 import { SizeSeeder } from './seeders/size.seeder';
 
@@ -26,6 +28,7 @@ import { SizeSeeder } from './seeders/size.seeder';
       Role,
       User,
       Category,
+      Product,
       Size,
       Color,
       Country,
@@ -39,6 +42,7 @@ import { SizeSeeder } from './seeders/size.seeder';
     RolesSeeder,
     AdminSeeder,
     CategorySeeder,
+    ProductSeeder,
     SizeSeeder,
     ColorSeeder,
     CountrySeeder,

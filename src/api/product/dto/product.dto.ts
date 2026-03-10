@@ -5,6 +5,7 @@ import {
   IsIn,
   IsNotEmpty,
   IsNumber,
+  IsOptional,
   IsString,
   ValidateNested,
 } from 'class-validator';
@@ -15,32 +16,68 @@ export class CreateProductDto {
   @IsNumber()
   @IsNotEmpty()
   public categoryId: number;
-}
 
-export class ProductDetailsDto {
+  @IsOptional()
   @IsString()
   @IsNotEmpty()
-  public title: string;
+  public title?: string;
 
+  @IsOptional()
   @IsString()
   @IsNotEmpty()
-  public code: string;
+  public code?: string;
 
-  @IsDefined()
+  @IsOptional()
   @IsString()
   @IsIn(variationTypesKeys)
-  public variationType: string;
+  public variationType?: string;
 
+  @IsOptional()
   @IsDefined()
   @Type(ProductDetailsTypeFn)
   @ValidateNested()
-  public details: ProductDetails;
+  public details?: ProductDetails;
 
+  @IsOptional()
   @ArrayMinSize(1)
   @IsString({ each: true })
-  public about: string[];
+  public about?: string[];
 
+  @IsOptional()
   @IsString()
   @IsNotEmpty()
-  public description: string;
+  public description?: string;
+}
+
+export class ProductDetailsDto {
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  public title?: string;
+
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  public code?: string;
+
+  @IsOptional()
+  @IsString()
+  @IsIn(variationTypesKeys)
+  public variationType?: string;
+
+  @IsOptional()
+  @IsDefined()
+  @Type(ProductDetailsTypeFn)
+  @ValidateNested()
+  public details?: ProductDetails;
+
+  @IsOptional()
+  @ArrayMinSize(1)
+  @IsString({ each: true })
+  public about?: string[];
+
+  @IsOptional()
+  @IsString()
+  @IsNotEmpty()
+  public description?: string;
 }

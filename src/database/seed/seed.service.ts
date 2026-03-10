@@ -6,6 +6,7 @@ import { CategorySeeder } from './seeders/category.seeder';
 import { ColorSeeder } from './seeders/color.seeder';
 import { CountrySeeder } from './seeders/country.seeder';
 import { CurrencySeeder } from './seeders/currency.seeder';
+import { ProductSeeder } from './seeders/product.seeder';
 import { RolesSeeder } from './seeders/role.seeder';
 import { SizeSeeder } from './seeders/size.seeder';
 
@@ -18,6 +19,7 @@ export class SeedService {
     rolesSeeder: RolesSeeder,
     adminSeeder: AdminSeeder,
     categoriesSeeder: CategorySeeder,
+    productSeeder: ProductSeeder,
     sizesSeeder: SizeSeeder,
     colorsSeeder: ColorSeeder,
     countrySeeder: CountrySeeder,
@@ -27,6 +29,7 @@ export class SeedService {
       rolesSeeder,
       adminSeeder,
       categoriesSeeder,
+      productSeeder,
       sizesSeeder,
       colorsSeeder,
       countrySeeder,

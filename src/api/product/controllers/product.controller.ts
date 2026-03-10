@@ -11,9 +11,14 @@ import { User } from 'src/database/entities/user.entity';
 export class ProductController {
   constructor(private readonly productService: ProductService) {}
 
+  @Get()
+  async listProducts() {
+    return this.productService.listProducts();
+  }
+
   @Get(':id')
-  async getProduct(@Param() product: FindOneParams) {
-    return this.productService.getProduct(product.id);
+  async getProduct(@Param() params: FindOneParams) {
+    return this.productService.getProduct(params.id);
   }
 
   @Auth(RoleIds.Admin, RoleIds.Merchant)
@@ -28,28 +33,37 @@ export class ProductController {
   @Auth(RoleIds.Admin, RoleIds.Merchant)
   @Post(':id/details')
   async addProductDetails(
-    @Param() product: FindOneParams,
+    @Param() params: FindOneParams,
     @Body() body: ProductDetailsDto,
     @CurrentUser() user: User,
   ) {
-    return this.productService.addProductDetails(product.id, body, user.id);
+    return this.productService.addProductDetails(params.id, body, user.id);
   }
 
   @Auth(RoleIds.Admin, RoleIds.Merchant)
   @Post(':id/activate')
   async activateProduct(
-    @Param() product: FindOneParams,
+    @Param() params: FindOneParams,
     @CurrentUser() user: User,
   ) {
-    return this.productService.activateProduct(product.id, user.id);
+    return this.productService.activateProduct(params.id, user.id);
+  }
+
+  @Auth(RoleIds.Admin, RoleIds.Merchant)
+  @Post(':id/deactivate')
+  async deactivateProduct(
+    @Param() params: FindOneParams,
+    @CurrentUser() user: User,
+  ) {
+    return this.productService.deactivateProduct(params.id, user.id);
   }
 
   @Auth(RoleIds.Admin, RoleIds.Merchant)
   @Delete(':id')
   async deleteProduct(
-    @Param() product: FindOneParams,
+    @Param() params: FindOneParams,
     @CurrentUser() user: User,
   ) {
-    return this.productService.deleteProduct(product.id, user.id);
+    return this.productService.deleteProduct(params.id, user.id);
   }
 }
