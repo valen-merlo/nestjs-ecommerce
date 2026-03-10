@@ -1,67 +1,51 @@
-# Ecommerce App with Nest.js and Postgres
+# Challenge Sr Fullstack — E-commerce Event-Driven
 
-## Description
-This project is an ecommerce application built using Nest.js and Postgres. The focus is on writing clean, modular, and testable code, and following a well-organized project structure.
+Solución al Challenge Sr Fullstack (Microservicios): evolución de un monolito NestJS hacia un modelo event-driven con frontend React.
 
-## Technology Stack
+## URLs de acceso
 
-- Nest.js
-- PostgreSQL
-- TypeORM
-- Jest
+- **Frontend:** https://ecommerce-frontend-ovz4.onrender.com
+- **Backend:** https://ecommerce-backend-dl7d.onrender.com
+- **Repositorio:** https://github.com/valen-merlo/nestjs-ecommerce
 
-## Getting Started
+## Documentación completa
 
-To get started with this project, follow these steps:
+La documentación detallada (diagnóstico, eventos, decisiones técnicas, setup) se encuentra en:
 
-- Clone this repository to your local machine.
-- navigate to the nestjs-ecommerce directory.
+📄 **[docs/DOCUMENTATION.md](./docs/DOCUMENTATION.md)**
 
-```bash 
-cd ./nestjs-ecommerce
-```
-- start postgres database.
+## Quick Start (local)
 
+### Backend
 ```bash
 docker-compose up -d
-```
-
-- install app dependencies.
-
-```bash
 npm install
-```
-
-- run database migrations.
-
-```bash
 npm run migration:run
-```
-if you want to generate any future migration
-
-```bash
-npm run migration:generate --name=<migrationName>
-```
-
-- run database seeders.
-
-```bash
 npm run seed:run
-```
-
-- start the applictaion.
-
-```bash
 npm run start:dev
 ```
 
-## Testing
-To run the tests, follow these steps:
-1. Install dependencies: `npm install`
-2. Run the tests: `npm run test`
+### Frontend
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-## Contributing
-If you're interested in contributing to this project, please follow these guidelines:
-1. Fork the repository
-2. Make your changes
-3. Submit a pull request
+**Login admin:** `admin@admin.com` / `12345678`
+
+## Stack
+
+- **Backend:** NestJS, TypeORM, PostgreSQL, EventEmitter (event-driven)
+- **Frontend:** React, TypeScript, Vite
+- **Deploy:** Render (backend + DB + frontend)
+```
+
+---
+
+## 2. Asegurate que las URLs en tu doc de `docs/` estén actualizadas
+
+Verificá que en tu `docs/DOCUMENTATION.md` (o como se llame) tengas:
+```
+- Backend: https://ecommerce-backend-dl7d.onrender.com
+- Frontend: https://ecommerce-frontend-ovz4.onrender.com
